@@ -58,21 +58,28 @@ void main() {
     );
     final WealthSummary tWealthSummary = tWealthSummaryModel;
 
-    test('should check if the device is connected', () async {
+    configNetworkInfo({required bool isConnected}) {
+      when(mockNetworkInfo.isConnected).thenAnswer((_) async => isConnected);
+    }
+
+    configConnectionTest(bool isConnected) {
+      configNetworkInfo(isConnected: isConnected);
       when(mockWealthSummaryRemoteDataSource.getWealthSummary())
-          .thenAnswer((_) async => tWealthSummaryModel);
-      when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+          .thenThrow(ServerException());
+    }
+
+    test('should check if the device is connected', () async {
+      configConnectionTest(true);
 
       wealthSummaryRepositoryImpl.getWealthSummary();
+
       verify(mockNetworkInfo.isConnected);
       verifyNever(mockWealthSummaryRemoteDataSource.getWealthSummary());
     });
 
     test('should return a NotConnectedFailure if device is not connected ',
         () async {
-      when(mockWealthSummaryRemoteDataSource.getWealthSummary())
-          .thenAnswer((_) async => tWealthSummaryModel);
-      when(mockNetworkInfo.isConnected).thenAnswer((_) async => false);
+      configConnectionTest(false);
 
       final result = await wealthSummaryRepositoryImpl.getWealthSummary();
 
@@ -83,7 +90,7 @@ void main() {
 
     test('should return data when the call to remote data source is successful',
         () async {
-      when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+      configNetworkInfo(isConnected: true);
       when(mockWealthSummaryRemoteDataSource.getWealthSummary())
           .thenAnswer((_) async => tWealthSummaryModel);
 
@@ -96,13 +103,13 @@ void main() {
     test(
         'should return server failure when the call to remote data source is unsuccessful',
         () async {
-      when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+      configNetworkInfo(isConnected: true);
       when(mockWealthSummaryRemoteDataSource.getWealthSummary())
           .thenThrow(ServerException());
 
       final result = await wealthSummaryRepositoryImpl.getWealthSummary();
 
-      verify(mockWealthSummaryRemoteDataSource.getWealthSummary());      
+      verify(mockWealthSummaryRemoteDataSource.getWealthSummary());
       expect(result, Left(ServerFailure()));
     });
   });
