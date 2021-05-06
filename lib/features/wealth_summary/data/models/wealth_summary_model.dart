@@ -1,4 +1,3 @@
-import 'package:fliper_flutter_test/core/helpers/converters.dart';
 import 'package:fliper_flutter_test/features/wealth_summary/domain/entities/wealth_summary.dart';
 
 class WealthSummaryModel extends WealthSummary {
@@ -21,11 +20,11 @@ class WealthSummaryModel extends WealthSummary {
   factory WealthSummaryModel.fromJson(Map<String, dynamic> json) {
     return WealthSummaryModel(
       id: json["id"],
-      cdi: getDouble(json["cdi"]),
-      gain: getDouble(json["gain"]),
+      cdi: (json["cdi"] as num).toDouble(),
+      gain: (json["gain"] as num).toDouble(),
       hasHistory: json["hasHistory"],
-      profitability: getDouble(json["profitability"]),
-      total: getDouble(json["total"]),
+      profitability: (json["profitability"] as num).toDouble(),
+      total: (json["total"] as num).toDouble(),
     );
   }
 }

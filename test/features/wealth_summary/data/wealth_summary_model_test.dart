@@ -16,19 +16,38 @@ void main() {
     total: 3200876,
   );
 
+  final WealthSummaryModel tWealthSummaryModelInt = WealthSummaryModel(
+    id: 2,
+    cdi: 3,
+    gain: 1833,
+    hasHistory: true,
+    profitability: 2,
+    total: 3200876,
+  );
+
   test('should be a subclass of WealthSummary entity', () {
     expect(tWealthSummaryModel, isA<WealthSummary>());
   });
 
   group('fromJson', () {
-    test('should return a valid model when try parse', () {
+    test('should return a valid model when JSON numbers are double', () {
       final Map<String, dynamic> jsonMap = json.decode(
-        fixture('wealth_summary.json'),
+        fixture('wealth_summary_double.json'),
       );
 
       final result = WealthSummaryModel.fromJson(jsonMap);
 
       expect(result, tWealthSummaryModel);
+    });
+
+    test('should return a valid model when JSON numbers are int', () {
+      final Map<String, dynamic> jsonMap = json.decode(
+        fixture('wealth_summary_int.json'),
+      );
+
+      final result = WealthSummaryModel.fromJson(jsonMap);
+
+      expect(result, tWealthSummaryModelInt);
     });
   });
 }
