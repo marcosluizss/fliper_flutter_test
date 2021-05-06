@@ -4,7 +4,7 @@ import 'package:fliper_flutter_test/features/wealth_summary/data/models/wealth_s
 import 'package:fliper_flutter_test/features/wealth_summary/domain/entities/wealth_summary.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../fixture/fixture_reader.dart';
+import '../../../../fixture/fixture_reader.dart';
 
 void main() {
   final WealthSummaryModel tWealthSummaryModel = WealthSummaryModel(
