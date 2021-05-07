@@ -4,6 +4,8 @@ import 'package:fliper_flutter_test/core/error/exceptions.dart';
 import 'package:fliper_flutter_test/features/wealth_summary/data/models/wealth_summary_model.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../../globals.dart';
+
 abstract class WealthSummaryRemoteDataSource {
   Future<WealthSummaryModel> getWealthSummary();
 }
@@ -14,11 +16,11 @@ class WealthSummaryRemoteDataSourceImpl
 
   WealthSummaryRemoteDataSourceImpl({required this.client});
 
-  final url = Uri.parse("https://harura-fliper-test.herokuapp.com/v1/graphql");
+  final url = Uri.parse(SERVER_URL);
 
   final headers = {
     "content-type": "application/json",
-    "x-hasura-admin-secret": "fliperdevtest2020"
+    "x-hasura-admin-secret": HASURA_SECRET
   };
 
   @override
