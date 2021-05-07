@@ -14,7 +14,9 @@ dependencies:
     
   equatable: ^2.0.0
   dartz: ^0.10.0-nullsafety.1  
-  connectivity_plus: ^1.0.1
+  connectivity_plus: ^1.0.1  
+  http: ^0.13.3
+
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
