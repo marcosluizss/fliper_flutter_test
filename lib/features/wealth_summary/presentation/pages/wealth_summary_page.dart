@@ -18,23 +18,26 @@ class WealthSummaryPage extends StatelessWidget {
 
   BlocProvider<WealthSummaryBloc> buildBody() {
     return BlocProvider(
-      create: (_) => sl<WealthSummaryBloc>()..add(GetWealthSummaryForCard()),
+      create: (_) => sl<WealthSummaryBloc>()..add(StartLoadPage()),
       child: SafeArea(
         child: Container(
-          child:
-              Center(child: BlocBuilder<WealthSummaryBloc, WealthSummaryState>(
-            builder: (context, state) {
-              if (state is Empty || state is Loading) {
-                return CardLoading();
-              } else if (state is Loaded) {
-                return SummaryCard(wealthSummary: state.wealthSummary);
-              } else if (state is Error) {
-                return Container();
-              } else {
-                return Container();
-              }
-            },
-          )),
+          child: Center(
+            child: BlocBuilder<WealthSummaryBloc, WealthSummaryState>(
+              builder: (_, state) {
+                if (state is Empty || state is Loading) {
+                  return CardLoading();
+                } else if (state is Loaded) {
+                  return SummaryCard(wealthSummary: state.wealthSummary);
+                } else if (state is Error) {
+                  return Container();
+                } else if (state is NotConnected) {
+                  return Text("sem conexão");
+                } else {
+                  return Container();
+                }
+              },
+            ),
+          ),
         ),
       ),
     );

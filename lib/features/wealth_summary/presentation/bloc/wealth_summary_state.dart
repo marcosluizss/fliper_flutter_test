@@ -11,6 +11,8 @@ class Empty extends WealthSummaryState {}
 
 class Loading extends WealthSummaryState {}
 
+class NotConnected extends WealthSummaryState {}
+
 class Loaded extends WealthSummaryState {
   final WealthSummary wealthSummary;
 

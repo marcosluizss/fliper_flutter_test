@@ -11,7 +11,12 @@ import 'package:get_it/get_it.dart';
 final sl = GetIt.instance;
 
 void init() {
-  sl.registerFactory(() => WealthSummaryBloc(getWealthSummary: sl()));
+  sl.registerFactory(
+    () => WealthSummaryBloc(
+      getWealthSummary: sl(),
+      networkInfo: sl(),
+    ),
+  );
 
   sl.registerLazySingleton(() => GetWealthSummary(sl()));
 
