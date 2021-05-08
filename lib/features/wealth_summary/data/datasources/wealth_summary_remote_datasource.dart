@@ -39,7 +39,7 @@ class WealthSummaryRemoteDataSourceImpl
     final response = await client.post(
       url,
       headers: headers,
-      body: {"query": query},
+      body: jsonEncode({"query": query}),
     );
 
     if (response.statusCode == 200) {
