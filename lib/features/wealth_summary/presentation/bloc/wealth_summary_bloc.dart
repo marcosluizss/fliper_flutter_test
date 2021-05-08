@@ -10,7 +10,6 @@ import 'package:fliper_flutter_test/features/wealth_summary/domain/usecases/get_
 part 'wealth_summary_event.dart';
 part 'wealth_summary_state.dart';
 
-const NO_CONNECTION_FAILURE_MESSAGE = "Sem conexão";
 const SERVER_FAILURE_MESSAGE = "Falha no servidor";
 
 class WealthSummaryBloc extends Bloc<WealthSummaryEvent, WealthSummaryState> {
@@ -56,7 +55,7 @@ class WealthSummaryBloc extends Bloc<WealthSummaryEvent, WealthSummaryState> {
 
   WealthSummaryState _mapFailure(Failure failure) {
     switch (failure.runtimeType) {
-      case NotConnected:
+      case NotConnectedFailure:
         return NotConnected();
       default:
         return Error(

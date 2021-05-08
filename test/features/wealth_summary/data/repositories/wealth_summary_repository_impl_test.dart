@@ -1,13 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:fliper_flutter_test/core/error/exceptions.dart';
 import 'package:fliper_flutter_test/core/error/failures.dart';
-import 'package:fliper_flutter_test/core/infra/network_info.dart';
 import 'package:fliper_flutter_test/features/wealth_summary/data/datasources/wealth_summary_remote_datasource.dart';
 import 'package:fliper_flutter_test/features/wealth_summary/data/models/wealth_summary_model.dart';
 import 'package:fliper_flutter_test/features/wealth_summary/data/repositories/wealth_summary_repository_impl.dart';
 import 'package:fliper_flutter_test/features/wealth_summary/domain/entities/wealth_summary.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+
+import '../../../common_mocks.dart';
 
 class MockWealthSummaryRemoteDataSource extends Mock
     implements WealthSummaryRemoteDataSource {
@@ -24,13 +25,6 @@ class MockWealthSummaryRemoteDataSource extends Mock
   Future<WealthSummaryModel> getWealthSummary() =>
       super.noSuchMethod(Invocation.method(#getWealthSummary, [])) ??
       Future.value(tWealthSummaryModel);
-}
-
-class MockNetworkInfo extends Mock implements NetworkInfo {
-  @override
-  Future<bool> get isConnected =>
-      super.noSuchMethod(Invocation.method(#isConnected, [])) ??
-      Future.value(false);
 }
 
 void main() {
