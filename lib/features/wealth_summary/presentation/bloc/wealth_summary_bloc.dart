@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:fliper_flutter_test/core/error/failures.dart';
-import 'package:fliper_flutter_test/core/infra/network_info.dart';
-import 'package:fliper_flutter_test/features/wealth_summary/domain/entities/wealth_summary.dart';
-import 'package:fliper_flutter_test/features/wealth_summary/domain/usecases/get_wealth_summary.dart';
+import '../../../../core/error/failures.dart';
+import '../../../../core/infra/network_info.dart';
+import '../../domain/entities/wealth_summary.dart';
+import '../../domain/usecases/get_wealth_summary.dart';
 
 part 'wealth_summary_event.dart';
 part 'wealth_summary_state.dart';

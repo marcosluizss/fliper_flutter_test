@@ -1,9 +1,11 @@
-import 'package:fliper_flutter_test/theme.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../theme.dart';
 
 class CardFooter extends StatelessWidget {
   final bool hasHistory;
-  const CardFooter({
+
+  CardFooter({
     this.hasHistory = false,
     Key? key,
   }) : super(key: key);
@@ -28,7 +30,7 @@ class CardFooter extends StatelessWidget {
               height: 32,
               child: OutlinedButton(
                 style: getButtonStyle(),
-                onPressed: () {},
+                onPressed: () => _showAlert(context),
                 child: Text(
                   "VER MAIS",
                   textAlign: TextAlign.left,
@@ -40,6 +42,35 @@ class CardFooter extends StatelessWidget {
         ],
       );
     }
+  }
+
+  _showAlert(BuildContext context) {
+    final _alert = AlertDialog(
+      title: Text("Deseja ver mais?"),
+      content: Text(
+        "Me contrata que irei usar minha experiência para ajudar a empresa crescer e crescer junto. Topa?",
+        textAlign: TextAlign.justify,
+      ),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text("Sim!")),
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text("Com certeza!")),
+      ],
+      elevation: 10,
+    );
+
+    showDialog(
+      context: context,
+      builder: (_) => _alert,
+      barrierDismissible: false,
+    );
   }
 
   ButtonStyle getButtonStyle() => OutlinedButton.styleFrom(

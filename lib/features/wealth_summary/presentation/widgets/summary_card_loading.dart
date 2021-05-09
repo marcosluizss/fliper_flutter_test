@@ -1,32 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../../theme.dart';
-
 class SummaryCardLoading extends StatelessWidget {
   const SummaryCardLoading({
     Key? key,
   }) : super(key: key);
 
-  final countBodyItems = 3;
+  final _countBodyItems = 3;
+
+  static final double cardHeight = 250;
+  static final padding = const EdgeInsets.symmetric(
+    horizontal: 15,
+    vertical: 20,
+  );
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
-      ),
-      shadowColor: COLOR_LIGTH_GRAY,
-      margin: const EdgeInsets.only(left: 16, right: 14.5),
-      child: Container(
-        height: 250,
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: getCardItems(),
-        ),
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: getCardItems(),
     );
   }
 
@@ -44,7 +37,7 @@ class SummaryCardLoading extends StatelessWidget {
 
   List<Widget> getBodyItems() {
     List<Widget> items = [];
-    for (var i = 0; i < countBodyItems; i++) {
+    for (var i = 0; i < _countBodyItems; i++) {
       items.add(Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

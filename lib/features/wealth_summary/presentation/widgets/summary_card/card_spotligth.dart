@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../../core/util/extensions.dart';
 
 class CardSpotligth extends StatelessWidget {

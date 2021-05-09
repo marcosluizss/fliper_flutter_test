@@ -1,4 +1,4 @@
-import 'package:fliper_flutter_test/features/wealth_summary/domain/entities/wealth_summary.dart';
+import '../../domain/entities/wealth_summary.dart';
 
 class WealthSummaryModel extends WealthSummary {
   WealthSummaryModel({

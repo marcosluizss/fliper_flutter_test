@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:fliper_flutter_test/core/error/exceptions.dart';
-import 'package:fliper_flutter_test/features/wealth_summary/data/models/wealth_summary_model.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../../core/error/exceptions.dart';
 import '../../../../globals.dart';
+import '../models/wealth_summary_model.dart';
 
 abstract class WealthSummaryRemoteDataSource {
   Future<WealthSummaryModel> getWealthSummary();

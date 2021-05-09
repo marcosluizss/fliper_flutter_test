@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class WealthSummary extends Equatable {
   final int id;
+
   final double cdi;
   final double gain;
   final bool hasHistory;

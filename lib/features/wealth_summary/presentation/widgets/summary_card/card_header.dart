@@ -7,6 +7,8 @@ class CardHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final choices = ["Em breve", "Em breve", "Em breve"];
+
     return Row(
       children: [
         Expanded(
@@ -16,11 +18,22 @@ class CardHeader extends StatelessWidget {
             style: Theme.of(context).textTheme.headline1,
           ),
         ),
-        Icon(
-          Icons.more_vert,
-          color: Theme.of(context).iconTheme.color,
-          size: Theme.of(context).iconTheme.size,
-        ),
+        PopupMenuButton<String>(
+          icon: Icon(
+            Icons.more_vert,
+            color: Theme.of(context).iconTheme.color,
+            size: Theme.of(context).iconTheme.size,
+          ),
+          onSelected: (_) {},
+          itemBuilder: (BuildContext context) {
+            return choices.map((String choice) {
+              return PopupMenuItem<String>(
+                value: choice,
+                child: Text(choice),
+              );
+            }).toList();
+          },
+        )
       ],
     );
   }

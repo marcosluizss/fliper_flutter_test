@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:fliper_flutter_test/core/error/failures.dart';
-import 'package:fliper_flutter_test/features/wealth_summary/domain/entities/wealth_summary.dart';
-import 'package:fliper_flutter_test/features/wealth_summary/domain/repositories/wealth_summary_repository.dart';
+
+import '../../../../core/error/failures.dart';
+import '../entities/wealth_summary.dart';
+import '../repositories/wealth_summary_repository.dart';
 
 class GetWealthSummary {
   final WealthSummaryRepository wealthSummaryRepository;

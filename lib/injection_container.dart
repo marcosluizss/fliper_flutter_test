@@ -1,10 +1,10 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:fliper_flutter_test/core/infra/network_info.dart';
-import 'package:fliper_flutter_test/features/wealth_summary/data/datasources/wealth_summary_remote_datasource.dart';
-import 'package:fliper_flutter_test/features/wealth_summary/data/repositories/wealth_summary_repository_impl.dart';
-import 'package:fliper_flutter_test/features/wealth_summary/domain/repositories/wealth_summary_repository.dart';
-import 'package:fliper_flutter_test/features/wealth_summary/domain/usecases/get_wealth_summary.dart';
-import 'package:fliper_flutter_test/features/wealth_summary/presentation/bloc/wealth_summary_bloc.dart';
+import 'core/infra/network_info.dart';
+import 'features/wealth_summary/data/datasources/wealth_summary_remote_datasource.dart';
+import 'features/wealth_summary/data/repositories/wealth_summary_repository_impl.dart';
+import 'features/wealth_summary/domain/repositories/wealth_summary_repository.dart';
+import 'features/wealth_summary/domain/usecases/get_wealth_summary.dart';
+import 'features/wealth_summary/presentation/bloc/wealth_summary_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 
