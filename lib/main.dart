@@ -1,3 +1,4 @@
+import 'package:fliper_flutter_test/theme.dart';
 import 'package:flutter/material.dart';
 
 import 'features/wealth_summary/presentation/pages/wealth_summary_page.dart';

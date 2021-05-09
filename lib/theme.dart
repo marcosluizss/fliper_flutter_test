@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-package:get_it/get_it.dart';
-import 'package:http/http.dart' as http;
 
-import '
 const COLOR_LIGTH_GRAY_BLUE = Color.fromRGBO(232, 235, 246, 1);
 const COLOR_BLUE = Color.fromRGBO(59, 92, 184, 1);
 const COLOR_GRAY = Color.fromRGBO(96, 99, 119, 1);
 const COLOR_LIGTH_GRAY = Color.fromRGBO(154, 163, 188, 1);
 
+ThemeData buildThemeData() {
+  return ThemeData(
     primarySwatch: Colors.blue,
     iconTheme: IconThemeData(
       color: COLOR_LIGTH_GRAY,
