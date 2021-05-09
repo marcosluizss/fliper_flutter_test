@@ -1,18 +1,20 @@
+import 'widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class SummaryCardLoading extends StatelessWidget {
+class SummaryCardLoading extends StatelessWidget
+    implements WealthSummaryPageCard {
   const SummaryCardLoading({
     Key? key,
   }) : super(key: key);
 
   final _countBodyItems = 3;
 
-  static final double cardHeight = 250;
-  static final padding = const EdgeInsets.symmetric(
-    horizontal: 15,
-    vertical: 20,
-  );
+  EdgeInsets get cardPadding => const EdgeInsets.symmetric(
+        horizontal: 15,
+        vertical: 20,
+      );
+  double get cardHeight => 250;
 
   @override
   Widget build(BuildContext context) {

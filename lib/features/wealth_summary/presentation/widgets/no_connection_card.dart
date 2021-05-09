@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../../../../theme.dart';
+import 'widgets.dart';
 
-class NoConnectionCard extends StatelessWidget {
+class NoConnectionCard extends StatelessWidget
+    implements WealthSummaryPageCard {
   const NoConnectionCard({
     Key? key,
   }) : super(key: key);
 
-  static final double cardHeight = 200;
-  static final EdgeInsets padding = const EdgeInsets.symmetric(
-    horizontal: 40,
-    vertical: 20,
-  );
+  EdgeInsets get cardPadding => const EdgeInsets.symmetric(
+        horizontal: 40,
+        vertical: 20,
+      );
+  double get cardHeight => 200;
 
   @override
   Widget build(BuildContext context) {

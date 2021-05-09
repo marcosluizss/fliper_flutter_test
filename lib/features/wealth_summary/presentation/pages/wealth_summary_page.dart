@@ -31,33 +31,27 @@ class WealthSummaryPage extends StatelessWidget {
   }
 
   Widget _buildCard(WealthSummaryState state) {
-    Widget _card = Container();
-    double _heigth = 0;
-    EdgeInsets _padding = EdgeInsets.zero;
+    late WealthSummaryPageCard _card;
 
     if (state is Empty || state is Loading) {
       _card = SummaryCardLoading();
-      _padding = SummaryCardLoading.padding;
-      _heigth = SummaryCardLoading.cardHeight;
     } else if (state is Loaded) {
       _card = SummaryCard(wealthSummary: state.wealthSummary);
-      _padding = SummaryCard.padding;
-      _heigth = SummaryCard.cardHeigtht;
-    } else if (state is Error) {
+    } else if (state is NotConnected) {
+      _card = NoConnectionCard();
+    } else {
+      String message = "Falha na montagem do card";
+      if (state is Error) {
+        message = state.message;
+      }
       _card = ErrorCard(
-        message: state.message,
+        message: message,
         onTapReload: () {
           sl<WealthSummaryBloc>().add(GetWealthSummaryForCard());
         },
       );
-      _padding = ErrorCard.padding;
-      _heigth = ErrorCard.cardHeigth;
-    } else if (state is NotConnected) {
-      _card = NoConnectionCard();
-      _padding = NoConnectionCard.padding;
-      _heigth = NoConnectionCard.cardHeight;
     }
 
-    return CardBase(child: _card, padding: _padding, height: _heigth);
+    return CardBase(child: _card);
   }
 }

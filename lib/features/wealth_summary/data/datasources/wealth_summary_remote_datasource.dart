@@ -27,12 +27,12 @@ class WealthSummaryRemoteDataSourceImpl
   Future<WealthSummaryModel> getWealthSummary() async {
     final query = '''query MyQuery {
                               wealthSummary {
-                                cdi
-                                gain
-                                hasHistory
                                 id
-                                profitability
                                 total
+                                cdi
+                                gain                                
+                                profitability                                
+                                hasHistory                                
                               }
                             }''';
 

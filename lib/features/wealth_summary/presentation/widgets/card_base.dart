@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../../../../theme.dart';
 
+abstract class WealthSummaryPageCard {
+  EdgeInsets get cardPadding;
+  double get cardHeight;
+}
+
 class CardBase extends StatelessWidget {
-  final Widget child;
-  final EdgeInsets padding;
-  final double height;
+  final WealthSummaryPageCard child;
 
   const CardBase({
     required this.child,
-    required this.padding,
-    required this.height,
     Key? key,
   }) : super(key: key);
 
@@ -31,9 +32,9 @@ class CardBase extends StatelessWidget {
           ),
         ],
       ),
-      height: height,
-      padding: padding,
-      child: child,
+      height: child.cardHeight,
+      padding: child.cardPadding,
+      child: child as Widget,
     );
   }
 }

@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/util/extensions.dart';
 import '../../domain/entities/wealth_summary.dart';
+import 'card_base.dart';
 import 'summary_card/summary_card_widgets.dart';
 
-class SummaryCard extends StatelessWidget {
+class SummaryCard extends StatelessWidget implements WealthSummaryPageCard {
   final WealthSummary wealthSummary;
   const SummaryCard({
     required this.wealthSummary,
     Key? key,
   }) : super(key: key);
 
-  static final padding = const EdgeInsets.only(
-    bottom: 14,
-    right: 24,
-    top: 25,
-    left: 23.5,
-  );
-
-  static final double cardHeigtht = 352;
+  EdgeInsets get cardPadding => const EdgeInsets.only(
+        bottom: 14,
+        right: 24,
+        top: 25,
+        left: 23.5,
+      );
+  double get cardHeight => 352;
 
   @override
   Widget build(BuildContext context) {

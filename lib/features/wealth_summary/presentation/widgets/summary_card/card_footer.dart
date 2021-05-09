@@ -103,7 +103,7 @@ class CardFooter extends StatelessWidget {
           horizontal: 13,
           vertical: 6,
         ),
-        shadowColor: COLOR_LIGTH_GRAY_WITH_HALF_OPACITY,
+        shadowColor: COLOR_BLACL_WITH_HALF_OPACITY,
         elevation: 3,
       );
 }

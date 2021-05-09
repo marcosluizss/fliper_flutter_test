@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 
 const COLOR_LIGTH_GRAY_BLUE = Color.fromRGBO(232, 235, 246, 1);
 const COLOR_BLUE = Color.fromRGBO(59, 92, 184, 1);
+const COLOR_LIGTH_BLUE = Color.fromRGBO(132, 154, 215, 1);
 const COLOR_GRAY = Color.fromRGBO(96, 99, 119, 1);
 const COLOR_LIGTH_GRAY = Color.fromRGBO(154, 163, 188, 1);
-const COLOR_LIGTH_GRAY_WITH_HALF_OPACITY = Color.fromRGBO(0, 0, 0, 0.5);
+const COLOR_BLACL_WITH_HALF_OPACITY = Color.fromRGBO(0, 0, 0, 0.5);
 
 ThemeData buildThemeData() {
   return ThemeData(
-    primarySwatch: Colors.blue,
+    brightness: Brightness.light,
+    primaryColor: COLOR_BLUE,
+    accentColor: COLOR_LIGTH_BLUE,
     iconTheme: IconThemeData(
       color: COLOR_LIGTH_GRAY,
       size: 24,

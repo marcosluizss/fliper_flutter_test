@@ -1,7 +1,7 @@
-import 'package:fliper_flutter_test/features/wealth_summary/presentation/bloc/wealth_summary_bloc.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../injection_container.dart';
+import '../../bloc/wealth_summary_bloc.dart';
 
 const UPDATE_CHOICE = "Atualizar";
 

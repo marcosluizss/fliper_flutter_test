@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../theme.dart';
+import 'card_base.dart';
 
-class ErrorCard extends StatelessWidget {
+class ErrorCard extends StatelessWidget implements WealthSummaryPageCard {
   final String message;
   final Function onTapReload;
   const ErrorCard({
@@ -11,11 +12,11 @@ class ErrorCard extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  static final padding = const EdgeInsets.symmetric(
-    horizontal: 40,
-    vertical: 20,
-  );
-  static final double cardHeigth = 230;
+  EdgeInsets get cardPadding => const EdgeInsets.symmetric(
+        horizontal: 40,
+        vertical: 20,
+      );
+  double get cardHeight => 230;
 
   @override
   Widget build(BuildContext context) {
