@@ -1,4 +1,9 @@
+import 'package:fliper_flutter_test/features/wealth_summary/presentation/bloc/wealth_summary_bloc.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../injection_container.dart';
+
+const UPDATE_CHOICE = "Atualizar";
 
 class CardHeader extends StatelessWidget {
   const CardHeader({
@@ -7,7 +12,7 @@ class CardHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final choices = ["Em breve", "Em breve", "Em breve"];
+    final choices = [UPDATE_CHOICE, "Em breve", "Em breve"];
 
     return Row(
       children: [
@@ -24,7 +29,7 @@ class CardHeader extends StatelessWidget {
             color: Theme.of(context).iconTheme.color,
             size: Theme.of(context).iconTheme.size,
           ),
-          onSelected: (_) {},
+          onSelected: onSelect,
           itemBuilder: (BuildContext context) {
             return choices.map((String choice) {
               return PopupMenuItem<String>(
@@ -36,5 +41,11 @@ class CardHeader extends StatelessWidget {
         )
       ],
     );
+  }
+}
+
+void onSelect(String choice) {
+  if (choice == UPDATE_CHOICE) {
+    sl<WealthSummaryBloc>().add(GetWealthSummaryForCard());
   }
 }
