@@ -4,8 +4,10 @@ import '../../../../theme.dart';
 
 class ErrorCard extends StatelessWidget {
   final String message;
+  final Function onTapReload;
   const ErrorCard({
     required this.message,
+    required this.onTapReload,
     Key? key,
   }) : super(key: key);
 
@@ -13,7 +15,7 @@ class ErrorCard extends StatelessWidget {
     horizontal: 40,
     vertical: 20,
   );
-  static final double cardHeigth = 200;
+  static final double cardHeigth = 230;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,22 @@ class ErrorCard extends StatelessWidget {
         Text(
           message,
           style: Theme.of(context).textTheme.bodyText1,
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        ElevatedButton(
+          child: Container(
+            width: 100,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(Icons.refresh),
+                Text("Atualizar"),
+              ],
+            ),
+          ),
+          onPressed: () => onTapReload(),
         ),
       ],
     );
