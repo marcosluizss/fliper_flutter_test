@@ -48,7 +48,7 @@ class CardFooter extends StatelessWidget {
     final _alert = AlertDialog(
       title: Text("Deseja ver mais?"),
       content: Text(
-        "Me contrata que irei usar minha experiência para ajudar a empresa crescer e crescer junto. Topa?",
+        "Me contrate que irei usar minha experiência para ajudar a empresa a crescer e crescerei junto. Topa?",
         textAlign: TextAlign.justify,
       ),
       actions: [
@@ -56,7 +56,7 @@ class CardFooter extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text("Sim!")),
+            child: Text("Sim.")),
         TextButton(
             onPressed: () {
               Navigator.of(context).pop();
