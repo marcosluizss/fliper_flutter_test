@@ -44,7 +44,12 @@ class WealthSummaryPage extends StatelessWidget {
       _padding = SummaryCard.padding;
       _heigth = SummaryCard.cardHeigtht;
     } else if (state is Error) {
-      _card = ErrorCard(message: state.message);
+      _card = ErrorCard(
+        message: state.message,
+        onTapReload: () {
+          sl<WealthSummaryBloc>()..add(GetWealthSummaryForCard());
+        },
+      );
       _padding = ErrorCard.padding;
       _heigth = ErrorCard.cardHeigth;
     } else if (state is NotConnected) {
