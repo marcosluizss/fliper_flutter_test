@@ -25,20 +25,35 @@ class CardFooter extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment.bottomRight,
-            child: SizedBox(
-              height: 32,
-              child: OutlinedButton(
-                style: getButtonStyle(),
-                onPressed: () => _showAlert(context),
-                child: Text(
-                  "VER MAIS",
-                  textAlign: TextAlign.left,
-                  style: Theme.of(context).textTheme.button,
+              alignment: Alignment.bottomRight,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 7),
+                height: 35,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(
+                    color: COLOR_BLUE,
+                  ),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: COLOR_LIGTH_GRAY,
+                      blurRadius: 1,
+                      offset: Offset(1, 1),
+                    ),
+                  ],
                 ),
-              ),
-            ),
-          )
+                child: TextButton(
+                  onPressed: () => _showAlert(context),
+                  child: Text(
+                    "VER MAIS",
+                    textAlign: TextAlign.left,
+                    style: Theme.of(context).textTheme.button,
+                  ),
+                ),
+              ))
         ],
       );
     }
@@ -88,7 +103,7 @@ class CardFooter extends StatelessWidget {
           horizontal: 13,
           vertical: 6,
         ),
-        shadowColor: Color.fromRGBO(0, 0, 0, 0.5),
+        shadowColor: COLOR_LIGTH_GRAY_WITH_HALF_OPACITY,
         elevation: 3,
       );
 }

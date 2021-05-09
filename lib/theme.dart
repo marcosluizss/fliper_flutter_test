@@ -4,6 +4,7 @@ const COLOR_LIGTH_GRAY_BLUE = Color.fromRGBO(232, 235, 246, 1);
 const COLOR_BLUE = Color.fromRGBO(59, 92, 184, 1);
 const COLOR_GRAY = Color.fromRGBO(96, 99, 119, 1);
 const COLOR_LIGTH_GRAY = Color.fromRGBO(154, 163, 188, 1);
+const COLOR_LIGTH_GRAY_WITH_HALF_OPACITY = Color.fromRGBO(0, 0, 0, 0.5);
 
 ThemeData buildThemeData() {
   return ThemeData(

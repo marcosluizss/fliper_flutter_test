@@ -16,17 +16,24 @@ class CardBase extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
-      ),
-      shadowColor: COLOR_LIGTH_GRAY,
+    return Container(
       margin: const EdgeInsets.only(left: 16, right: 14.5),
-      child: Container(
-        height: height,
-        padding: padding,
-        child: child,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: COLOR_LIGTH_GRAY,
+            blurRadius: 1,
+            offset: Offset(1, 1),
+          ),
+        ],
       ),
+      height: height,
+      padding: padding,
+      child: child,
     );
   }
 }
