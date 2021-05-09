@@ -23,21 +23,26 @@ class CardHeader extends StatelessWidget {
             style: Theme.of(context).textTheme.headline1,
           ),
         ),
-        PopupMenuButton<String>(
-          icon: Icon(
-            Icons.more_vert,
-            color: Theme.of(context).iconTheme.color,
-            size: Theme.of(context).iconTheme.size,
+        SizedBox(
+          height: 24,
+          width: 24,
+          child: PopupMenuButton<String>(
+            padding: EdgeInsets.zero,
+            icon: Icon(
+              Icons.more_vert,
+              color: Theme.of(context).iconTheme.color,
+              size: Theme.of(context).iconTheme.size,
+            ),
+            onSelected: onSelect,
+            itemBuilder: (BuildContext context) {
+              return choices.map((String choice) {
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: Text(choice),
+                );
+              }).toList();
+            },
           ),
-          onSelected: onSelect,
-          itemBuilder: (BuildContext context) {
-            return choices.map((String choice) {
-              return PopupMenuItem<String>(
-                value: choice,
-                child: Text(choice),
-              );
-            }).toList();
-          },
         )
       ],
     );
