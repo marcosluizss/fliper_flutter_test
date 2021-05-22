@@ -15,15 +15,22 @@ class CardSpotligth extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            "Valor investido",
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.subtitle1,
+          Expanded(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                "Valor investido",
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.subtitle1,
+              ),
+            ),
           ),
-          Text(
-            total.toCurrencyDisplay(),
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.subtitle2,
+          Expanded(
+            child: Text(
+              total.toCurrencyDisplay(),
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
           )
         ],
       ),
